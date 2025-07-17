@@ -1,6 +1,5 @@
 # child_safety_ai
-A child safety hackathon project: developed an AI tool in 24 hours for blocking inappropriate content.
-An AI-based tool developed during a hackathon to block inappropriate content and ensure a safer internet experience for children.
+A child safety project: developed an AI tool in 24 hours for blocking inappropriate content with the help of my teammates.
 
 ---
 
@@ -8,80 +7,6 @@ An AI-based tool developed during a hackathon to block inappropriate content and
 - **Text Moderation**: Detects harmful, hateful, or inappropriate text content.
 - **Image Moderation**: Flags inappropriate images using OpenAI's moderation API.
 - **Chrome Extension**: Integrates with Chrome for real-time filtering.
-
----
-
-## Setup Instructions
-
-### Prerequisites
-- **Python**: Version 3.10 or higher.
-- **Docker**: Installed and running.
-- **OpenAI API Key**: Obtain your API key from [OpenAI](https://platform.openai.com/docs/guides/moderation).
-
----
-
-### Local Development
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/child_safety_ai.git
-   cd child_safety_ai
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   echo "OPENAI_API_KEY=your_api_key_here" > .env
-   ```
-
-3. Run the application:
-   ```bash
-   uvicorn app.app:app --host 0.0.0.0 --port 5000 --reload
-   ```
-
----
-
-### Docker Setup
-
-1. Build and start the container:
-   ```bash
-   docker-compose up --build -d
-   ```
-
-2. Access the container:
-   ```bash
-   docker exec -it <container_id> bash
-   ```
-
-3. Run the application inside the container:
-   ```bash
-   uvicorn app.app:app --host 0.0.0.0 --port 5000 --reload
-   ```
-
----
-
-## API Endpoints
-
-### Text Moderation
-- **Endpoint**: `/moderate/text`
-- **Method**: POST
-
-### Image Moderation
-- **Endpoint**: `/moderate/image`
-- **Method**: POST
-
----
-
-## Mini Guide
-
-- Go to [Extensions](chrome://extensions/) to view and manage Chrome extensions.
-- Click on "Load unpacked" and upload the extension directory. Now you can check it out.
-
----
-
-## Useful Links
-
-- [How to Create a Chrome Extension](https://scribehow.com/library/how-to-create-a-chrome-extension)
 
 ---
 
@@ -106,23 +31,79 @@ child_safety_ai/
 
 ---
 
-### Commands
+## Setup Instructions
 
-1. Build and start the Docker container:
+1. Clone the repository:
    ```bash
-   docker compose up --build -d
+   git clone https://github.com/your-repo/child_safety_ai.git
+   cd child_safety_ai
    ```
-   (`-d` runs in the background)
+
+---
+
+### Prerequisites
+- **Python**: Version 3.10 or higher.
+- **Docker**: Installed and running.
+- **OpenAI API Key**: Obtain your API key from [OpenAI](https://platform.openai.com/docs/guides/moderation).
+
+---
+
+### Simple Setup
+
+2. After cloning the repo, navigate to the root directory and build/start the container:
+   ```bash
+   docker-compose up --build
+   ```
+   The API will automatically start. Now you just need to set up the Chrome extension.
+
+---
+
+### How to Set Up Chrome Extension
+
+1. Go to [Extensions](chrome://extensions/) to view and manage Chrome extensions.
+2. Click on "Load unpacked" and upload the extension directory.
+3. The extension is now ready to use.
+
+For more details, refer to [How to Create a Chrome Extension](https://scribehow.com/library/how-to-create-a-chrome-extension).
+
+---
+
+### For Local Development
+
+#### Docker Setup
+
+1. Build and start the dev container:
+   ```bash
+   docker-compose up --build -d
+   ```
 
 2. Access the container:
    ```bash
    docker exec -it <container_id> bash
    ```
 
-3. Inside the Docker container, run:
+3. Install dependencies:
    ```bash
-   uvicorn app:app --host 0.0.0.0 --port 5000 --reload
+   pip install -r requirements.txt
+   echo "OPENAI_API_KEY=your_api_key_here" > .env
    ```
+
+4. Run the application:
+   ```bash
+   uvicorn app.app:app --host 0.0.0.0 --port 5000 --reload
+   ```
+
+---
+
+## API Endpoints
+
+### Text Moderation
+- **Endpoint**: `/moderate/text`
+- **Method**: POST
+
+### Image Moderation
+- **Endpoint**: `/moderate/image`
+- **Method**: POST
 
 ---
 
@@ -133,7 +114,7 @@ The `.env` file should contain:
 OPENAI_API_KEY=<your_api_key>
 ```
 
-You can check out how OpenAI works and how to get your API key: [OpenAI Moderation Guide](https://platform.openai.com/docs/guides/moderation)
+Refer to [OpenAI Moderation Guide](https://platform.openai.com/docs/guides/moderation) for details on obtaining and using your API key.
 
 ---
 
