@@ -1,0 +1,8 @@
+.blur-content {
+  filter: blur(8px)  !important;
+  transition: filter 0.3s ease;
+}
+
+img.blur-content {
+  filter: blur(8px) !important;
+}

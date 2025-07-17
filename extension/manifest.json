@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ChildGuard",
+  "version": "1.0",
+  "description": "A Chrome extension to bluer out content not safe for children.",
+  "icons": {
+    "32": "img/icons8-turtle-32.png",
+    "64": "img/icons8-turtle-64.png"
+  },
+  "permissions": ["scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
